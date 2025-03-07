@@ -24,11 +24,8 @@ let recipeCollection = [];
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return |MDN: Return statement}
  */
 function addRecipe(recipe) {
-  // CHALLENGE 5: Add a recipe to the collection
-  // Add the recipe to the recipeCollection array
-  // Return true to indicate success
-
-  // YOUR CODE HERE
+  recipeCollection.push(recipe);
+  return true;
 }
 
 /**
@@ -43,12 +40,7 @@ function addRecipe(recipe) {
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality |MDN: Equality operators}
  */
 const findRecipe = (name) => {
-  // CHALLENGE 6: Find a recipe by name
-  // Use the array's find() method to locate a recipe with a matching name
-  // Return the found recipe or undefined if not found
-  // This should be written as an arrow function
-
-  // YOUR CODE HERE
+  return recipeCollection.find(recipe => recipe.name === name);
 };
 
 /**
@@ -62,12 +54,7 @@ const findRecipe = (name) => {
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions |MDN: Arrow functions used as callbacks}
  */
 function getQuickRecipes(maxTime = 30) {
-  // CHALLENGE 7: Find quick recipes
-  // Use the array's filter() method to find recipes with cookingTime <= maxTime
-  // Return the filtered array
-  // The function has a default parameter of 30 minutes
-
-  // YOUR CODE HERE
+  return recipeCollection.filter(recipe => recipe.cookingTime <= maxTime);
 }
 
 /**
@@ -80,10 +67,7 @@ function getQuickRecipes(maxTime = 30) {
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array |MDN: Arrays}
  */
 function clearRecipes() {
-  // CHALLENGE 8: Clear the recipe collection
-  // Reset the recipeCollection to an empty array
-
-  // YOUR CODE HERE
+  recipeCollection = [];
 }
 
 /* c8 ignore start */

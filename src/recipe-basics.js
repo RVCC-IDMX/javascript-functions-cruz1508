@@ -20,17 +20,15 @@ const SHOW_EXAMPLES = false;
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer |MDN: Object literal syntax}
  */
 function createRecipe(name, cookingTime, servings = 4) {
-  // CHALLENGE 1: Create a new recipe object
-  // The recipe object needs these properties:
-  // - id: use Date.now() to create a unique identifier
-  // - name: from the name parameter
-  // - cookingTime: from the cookingTime parameter
-  // - servings: from the servings parameter (which has a default value)
-  // - ingredients: an empty array to store ingredients later
-  // - steps: an empty array to store cooking steps
-  // - dateCreated: today's date (use new Date().toLocaleDateString())
-
-  // YOUR CODE HERE
+  return {
+    id: Date.now(),
+    name,
+    cookingTime,
+    servings,
+    ingredients: [],
+    steps: [],
+    dateCreated: new Date().toLocaleDateString()
+  };
 }
 
 /**
@@ -48,12 +46,9 @@ function createRecipe(name, cookingTime, servings = 4) {
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Property_definitions |MDN: Object property shorthand}
  */
 const addIngredient = function (recipe, name, amount, unit) {
-  // CHALLENGE 2: Add an ingredient to a recipe
-  // Create an ingredient object with name, amount, and unit properties
-  // Add it to the recipe's ingredients array
-  // Return the modified recipe
-
-  // YOUR CODE HERE
+  const ingredient = { name, amount, unit };
+  recipe.ingredients.push(ingredient);
+  return recipe;
 };
 
 /**
@@ -67,11 +62,8 @@ const addIngredient = function (recipe, name, amount, unit) {
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push |MDN: Array.push() method}
  */
 function addStep(recipe, instruction) {
-  // CHALLENGE 3: Add a step to a recipe
-  // Add the instruction to the recipe's steps array
-  // Return the modified recipe
-
-  // YOUR CODE HERE
+  recipe.steps.push(instruction);
+  return recipe;
 }
 
 /**
@@ -85,12 +77,10 @@ function addStep(recipe, instruction) {
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#Conditional_statements |MDN: Conditional statements}
  */
 function removeStep(recipe, stepIndex) {
-  // CHALLENGE 4: Remove a step from a recipe
-  // Check if the stepIndex is valid (not negative and within the steps array length)
-  // If valid, remove the step at that index using splice()
-  // Return the modified recipe
-
-  // YOUR CODE HERE
+  if (stepIndex >= 0 && stepIndex < recipe.steps.length) {
+    recipe.steps.splice(stepIndex, 1);
+  }
+  return recipe;
 }
 
 /* c8 ignore start */
